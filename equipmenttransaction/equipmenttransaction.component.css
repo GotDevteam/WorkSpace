@@ -1,0 +1,89 @@
+.table {
+    width: 100%;
+ }
+
+.mat-header-cell{
+    color: darkgreen;
+}
+
+.paginatorDiv {
+    color: darkgoldenrod;
+    font-weight:bold;
+}
+
+.mat-column-serialNo{
+    color:blue;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mat-column-lastStatusDate{
+    font-size: xx-small;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mat-column-lastStatus{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+.mat-column-location{
+    font-size: xx-small;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mat-column-purchaseDate{
+    font-size: xx-small;
+}
+
+.mat-column-storename{
+    font-size:small;
+    color: darkorange;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mat-column-equipment{
+    color: red;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+
+.mat-column-note {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+

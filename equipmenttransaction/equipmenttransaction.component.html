@@ -1,0 +1,150 @@
+
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+  
+        <div class="col-md-12">
+
+          <div class="card">
+  
+            <div class="card-header card-header-info">
+              <h4 class="card-title">Equipment Transaction</h4>
+              
+            </div>
+              <p class="card-category"> </p>
+            </div>
+  
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Store</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor = "let store of storeList" [value] = "store.storeID"  >
+                            {{store.storeName}}
+                        </mat-option>
+                        <!--<mat-option value=2>"Piggly Wiggly #5513"</mat-option>
+                        <mat-option value=3>"Shopper Value #71-5530"</mat-option>
+                        <mat-option value=4>"TNT Supermarket #3365"</mat-option>-->
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="table" class="mat-elevation-z8">
+                <table mat-table [dataSource]="data" style="width: 100%">
+
+                    <ng-container matColumnDef="equipment">
+                        <mat-header-cell *matHeaderCellDef>Equipment</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.eqTypeDescription}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="serialNo">
+                        <mat-header-cell *matHeaderCellDef>Serial #</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.serial_No}}</mat-cell>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="storename">
+                        <mat-header-cell *matHeaderCellDef>Store Name</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.storeName}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastStatusDate">
+                        <mat-header-cell *matHeaderCellDef>Last Status Date</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.lastStatusDate | date:'MMM d, y'}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastStatus">
+                        <mat-header-cell *matHeaderCellDef>Last Known Status</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.lastKnownStatus}}</mat-cell>
+                    </ng-container>
+                            
+                    <ng-container matColumnDef="location">
+                        <mat-header-cell *matHeaderCellDef>Location</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.location}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="grind">
+                        <mat-header-cell *matHeaderCellDef>Grind</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.grind_Program}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="purchaseDate">
+                        <mat-header-cell *matHeaderCellDef>Purchase Date</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.purchase_Date}}</mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="warrentyEndDate">
+                        <mat-header-cell *matHeaderCellDef>Warranty End Date</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.warranty_End_Date}}</mat-cell>
+                    </ng-container>
+                        
+                    <ng-container matColumnDef="storeId">
+                        <mat-header-cell *matHeaderCellDef>Store #</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.storeId}}</mat-cell>
+                    </ng-container>
+            
+                    <ng-container class="eqNote" matColumnDef="note">
+                        <mat-header-cell *matHeaderCellDef>note</mat-header-cell>
+                        <mat-cell *matCellDef="let model">{{model.note}}</mat-cell>
+                    </ng-container>
+            
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            
+                    <mat-row *matRowDef="let row; columns: displayedColumns"
+                        (click) = OnRowClicked(row) ></mat-row>
+                </table>
+
+                <mat-paginator [length]="resultsLength" [pageSize]="10"  [pageSizeOptions]="pageSizeOptions" showFirstLastButtons></mat-paginator>
+            
+  
+                
+                <div class="paginatorDiv" >
+                    
+                </div>
+  
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-notifications></app-notifications>
+
+
+<!--
+<div class="table">
+    <table mat-table [dataSource]="data">
+        <ng-container matColumnDef="uid">
+            <mat-header-cell *matHeaderCellDef>UID</mat-header-cell>
+            <mat-cell *matCellDef="let model">{{model.uid}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+            <mat-cell *matCellDef="let model">{{model.storeId}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="serialNo">
+            <mat-header-cell *matHeaderCellDef>Serial #</mat-header-cell>
+            <mat-cell *matCellDef="let model">{{model.storeId}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="storeId">
+            <mat-header-cell *matHeaderCellDef>Store #</mat-header-cell>
+            <mat-cell *matCellDef="let model">{{model.storeId}}</mat-cell>
+        </ng-container>
+
+        <ng-container class="eqNote" matColumnDef="note">
+            <mat-header-cell *matHeaderCellDef>note</mat-header-cell>
+            <mat-cell *matCellDef="let model">{{model.note}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns"
+            (click) = OnRowClicked(row) ></mat-row>
+    </table>
+</div>
+<div class="paginatorDiv" >
+    <mat-paginator [length]="resultsLength" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+-->
+
